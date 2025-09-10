@@ -10,7 +10,7 @@ import (
 	"github.com/spf13/viper"
 	"gopkg.in/yaml.v3"
 
-	"github.com/norwoodj/helm-docs/pkg/helm"
+	"github.com/ramondeklein/helm-docs/pkg/helm"
 )
 
 type valueRow struct {

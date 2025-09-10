@@ -15,8 +15,8 @@ import (
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
 
-	"github.com/norwoodj/helm-docs/pkg/document"
-	"github.com/norwoodj/helm-docs/pkg/helm"
+	"github.com/ramondeklein/helm-docs/pkg/document"
+	"github.com/ramondeklein/helm-docs/pkg/helm"
 )
 
 // parallelProcessIterable runs the visitFn function on each element of the iterable, using
@@ -123,7 +123,7 @@ func getChartToGenerate(documentationInfoByChartPath map[string]helm.ChartDocume
 		return documentationInfoByChartPath
 	}
 	documentationInfoToGenerate := make(map[string]helm.ChartDocumentationInfo, len(generateDirectories))
-	var skipped = false
+	skipped := false
 	for _, chartDirectory := range generateDirectories {
 		if info, ok := documentationInfoByChartPath[chartDirectory]; ok {
 			documentationInfoToGenerate[chartDirectory] = info

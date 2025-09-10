@@ -4,7 +4,7 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/norwoodj/helm-docs/pkg/util"
+	"github.com/ramondeklein/helm-docs/pkg/util"
 	log "github.com/sirupsen/logrus"
 	"github.com/spf13/viper"
 )
@@ -32,7 +32,6 @@ func FindChartDirectories(chartSearchRoot string) ([]string, error) {
 				return nil
 			}
 			relativeChartDir, err := filepath.Rel(chartSearchRoot, filepath.Dir(path))
-
 			if err != nil {
 				return err
 			}

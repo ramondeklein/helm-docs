@@ -13,7 +13,7 @@ func ParseComment(commentLines []string) (string, ChartValueDescription) {
 	var c ChartValueDescription
 	var docStartIdx int
 
-	// Work around https://github.com/norwoodj/helm-docs/issues/96 by considering only
+	// Work around https://github.com/ramondeklein/helm-docs/issues/96 by considering only
 	// the last "group" of comment lines starting with '# --'.
 	lastIndex := 0
 	for i, v := range commentLines {
@@ -44,7 +44,7 @@ func ParseComment(commentLines []string) (string, ChartValueDescription) {
 		c.Description = valueTypeMatch[2]
 	}
 
-	var isRaw = false
+	isRaw := false
 
 	for _, line := range commentLines[docStartIdx+1:] {
 		rawFlagMatch := rawDescriptionRegex.FindStringSubmatch(line)

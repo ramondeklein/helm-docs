@@ -4,7 +4,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/norwoodj/helm-docs/pkg/helm"
+	"github.com/ramondeklein/helm-docs/pkg/helm"
 	"github.com/stretchr/testify/assert"
 	"gopkg.in/yaml.v3"
 )
@@ -27,7 +27,6 @@ func getSortedValuesTableRows(helmValues *yaml.Node, descriptions map[string]hel
 func parseYamlValues(yamlValues string) *yaml.Node {
 	var chartValues yaml.Node
 	err := yaml.Unmarshal([]byte(strings.TrimSpace(yamlValues)), &chartValues)
-
 	if err != nil {
 		panic(err)
 	}
@@ -358,6 +357,7 @@ oscar: dog
 	assert.Equal(t, "an empty object", valuesRows[1].Description)
 	assert.Equal(t, "", valuesRows[1].AutoDescription)
 }
+
 func TestEmptyList(t *testing.T) {
 	helmValues := parseYamlValues(`
 birds: []
@@ -469,7 +469,6 @@ cats: [echo, foxtrot]
 	assert.Equal(t, "", valuesRows[1].AutoDefault)
 	assert.Equal(t, "", valuesRows[1].Description)
 	assert.Equal(t, "", valuesRows[1].AutoDescription)
-
 }
 
 func TestListOfStringsWithDescriptions(t *testing.T) {
@@ -500,7 +499,6 @@ cats: [echo, foxtrot]
 	assert.Equal(t, "", valuesRows[1].AutoDefault)
 	assert.Equal(t, "the friendly one", valuesRows[1].Description)
 	assert.Equal(t, "", valuesRows[1].AutoDescription)
-
 }
 
 func TestListOfStringsWithDescriptionsAndDefaults(t *testing.T) {
@@ -531,7 +529,6 @@ cats: [echo, foxtrot]
 	assert.Equal(t, "", valuesRows[1].AutoDefault)
 	assert.Equal(t, "the friendly one", valuesRows[1].Description)
 	assert.Equal(t, "", valuesRows[1].AutoDescription)
-
 }
 
 func TestListOfObjects(t *testing.T) {

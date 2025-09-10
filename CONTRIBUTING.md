@@ -11,7 +11,7 @@ go build
 Or you can install from source:
 
 ```bash
-GO111MODULE=on go get github.com/norwoodj/helm-docs/cmd/helm-docs
+GO111MODULE=on go get github.com/ramondeklein/helm-docs/cmd/helm-docs
 ```
 
 ## Testing

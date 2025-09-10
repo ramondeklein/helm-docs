@@ -6,7 +6,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/norwoodj/helm-docs/pkg/helm"
+	"github.com/ramondeklein/helm-docs/pkg/helm"
 	"gopkg.in/yaml.v3"
 )
 
@@ -117,7 +117,6 @@ func jsonMarshalNoEscape(key string, value interface{}) (string, error) {
 	valueEncoder := json.NewEncoder(outputBuffer)
 	valueEncoder.SetEscapeHTML(false)
 	err := valueEncoder.Encode(value)
-
 	if err != nil {
 		return "", fmt.Errorf("failed to marshal default value for %s to json: %s", key, err)
 	}
@@ -237,7 +236,6 @@ func createValueRowsFromList(
 	if hasDescription || (autoDescription.Description != "" && autoDescription.NotationType == "") {
 		jsonableObject := convertHelmValuesToJsonable(values)
 		listRow, err := createValueRow(prefix, jsonableObject, description, autoDescription, key.Column, key.Line)
-
 		if err != nil {
 			return nil, err
 		}
@@ -257,7 +255,6 @@ func createValueRowsFromList(
 			}
 
 			listRow, err = createValueRow(prefix, notationValue, description, autoDescription, key.Column, key.Line)
-
 			if err != nil {
 				return nil, err
 			}
@@ -268,7 +265,6 @@ func createValueRowsFromList(
 		case tplType:
 			notationValue = values.Value
 			listRow, err = createValueRow(prefix, notationValue, description, autoDescription, key.Column, key.Line)
-
 			if err != nil {
 				return nil, err
 			}
@@ -282,7 +278,6 @@ func createValueRowsFromList(
 	for i, v := range values.Content {
 		nextPrefix := formatNextListKeyPrefix(prefix, i)
 		valueRowsForListField, err := createValueRowsFromField(nextPrefix, v, v, keysToDescriptions, documentLeafNodes)
-
 		if err != nil {
 			return nil, err
 		}
@@ -326,7 +321,6 @@ func createValueRowsFromObject(
 	if hasDescription || (autoDescription.Description != "" && autoDescription.NotationType == "") {
 		jsonableObject := convertHelmValuesToJsonable(values)
 		objectRow, err := createValueRow(nextPrefix, jsonableObject, description, autoDescription, key.Column, key.Line)
-
 		if err != nil {
 			return nil, err
 		}
@@ -347,7 +341,6 @@ func createValueRowsFromObject(
 			}
 
 			objectRow, err = createValueRow(nextPrefix, notationValue, description, autoDescription, key.Column, key.Line)
-
 			if err != nil {
 				return nil, err
 			}
@@ -359,7 +352,6 @@ func createValueRowsFromObject(
 		case tplType:
 			notationValue = values.Value
 			objectRow, err = createValueRow(nextPrefix, notationValue, description, autoDescription, key.Column, key.Line)
-
 			if err != nil {
 				return nil, err
 			}
@@ -374,7 +366,6 @@ func createValueRowsFromObject(
 		v := values.Content[i+1]
 		nextPrefix := formatNextObjectKeyPrefix(nextPrefix, k.Value)
 		valueRowsForObjectField, err := createValueRowsFromField(nextPrefix, k, v, keysToDescriptions, documentLeafNodes)
-
 		if err != nil {
 			return nil, err
 		}
@@ -424,7 +415,6 @@ func createValueRowsFromField(
 					}
 
 					leafValueRow, err = createValueRow(prefix, notationValue, description, autoDescription, key.Column, key.Line)
-
 					if err != nil {
 						return nil, err
 					}
@@ -437,7 +427,6 @@ func createValueRowsFromField(
 				case tplType:
 					notationValue = value.Value
 					leafValueRow, err = createValueRow(prefix, notationValue, description, autoDescription, key.Column, key.Line)
-
 					if err != nil {
 						return nil, err
 					}

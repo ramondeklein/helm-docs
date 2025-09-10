@@ -1,6 +1,6 @@
 helm-docs
 =========
-[![Go Report Card](https://goreportcard.com/badge/github.com/norwoodj/helm-docs)](https://goreportcard.com/report/github.com/norwoodj/helm-docs)
+[![Go Report Card](https://goreportcard.com/badge/github.com/ramondeklein/helm-docs)](https://goreportcard.com/report/github.com/ramondeklein/helm-docs)
 
 The helm-docs tool auto-generates documentation from helm charts into markdown files. The resulting
 files contain metadata about their respective chart and a table with each of the chart's values, their defaults, and an
@@ -68,7 +68,7 @@ or [scoop](https://scoop.sh):
 scoop install helm-docs
 ```
 
-This will download and install the [latest release](https://github.com/norwoodj/helm-docs/releases/latest)
+This will download and install the [latest release](https://github.com/ramondeklein/helm-docs/releases/latest)
 of the tool.
 
 To build from source in this repository:
@@ -81,7 +81,7 @@ go build
 Or install from source:
 
 ```bash
-go install github.com/norwoodj/helm-docs/cmd/helm-docs@latest
+go install github.com/ramondeklein/helm-docs/cmd/helm-docs@latest
 ```
 
 ## Usage
@@ -106,7 +106,7 @@ There are several variants of `pre-commit` hooks to choose from depending on you
 ```yaml
 ---
 repos:
-  - repo: https://github.com/norwoodj/helm-docs
+  - repo: https://github.com/ramondeklein/helm-docs
     rev:  ""
     hooks:
       - id: helm-docs
@@ -122,7 +122,7 @@ repos:
 ```yaml
 ---
 repos:
-  - repo: https://github.com/norwoodj/helm-docs
+  - repo: https://github.com/ramondeklein/helm-docs
     rev:  ""
     hooks:
       - id: helm-docs-built
@@ -138,7 +138,7 @@ repos:
 ```yaml
 ---
 repos:
-  - repo: https://github.com/norwoodj/helm-docs
+  - repo: https://github.com/ramondeklein/helm-docs
     rev:  ""
     hooks:
       - id: helm-docs-container
@@ -154,7 +154,7 @@ repos:
 ```yaml
 ---
 repos:
-  - repo: https://github.com/norwoodj/helm-docs
+  - repo: https://github.com/ramondeklein/helm-docs
     rev:  ""
     hooks:
       - id: helm-docs-container

@@ -6,7 +6,7 @@ import (
 	"path/filepath"
 	"regexp"
 
-	"github.com/norwoodj/helm-docs/pkg/helm"
+	"github.com/ramondeklein/helm-docs/pkg/helm"
 	log "github.com/sirupsen/logrus"
 	"github.com/spf13/viper"
 )
@@ -18,7 +18,6 @@ func getOutputFile(chartDirectory string, dryRun bool) (*os.File, error) {
 
 	outputFile := viper.GetString("output-file")
 	f, err := os.Create(filepath.Join(chartDirectory, outputFile))
-
 	if err != nil {
 		return nil, err
 	}
@@ -35,7 +34,6 @@ func PrintDocumentation(chartDocumentationInfo helm.ChartDocumentationInfo, char
 		templateFiles,
 		badgeStyle,
 	)
-
 	if err != nil {
 		log.Warnf("Error generating gotemplates for chart %s: %s", chartDocumentationInfo.ChartDirectory, err)
 		return
