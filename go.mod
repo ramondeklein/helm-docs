@@ -4,6 +4,8 @@ go 1.22.0
 
 toolchain go1.22.1
 
+replace github.com/norwoodj/helm-docs => github.com/ramondeklein/helm-docs v0.0.0-xxxxxx
+
 require (
 	github.com/Masterminds/sprig/v3 v3.2.3
 	github.com/gobwas/glob v0.2.3
